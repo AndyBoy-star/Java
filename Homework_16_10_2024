@@ -1,0 +1,89 @@
+Task 1---------------------------------------------
+
+import java.util.Random;
+
+public class Main {
+    public static void main(String[] args) {
+        int[] array = new int[8];
+        Random rand = new Random();
+
+        for (int i = 0; i < array.length; i++) {
+            array[i] = rand.nextInt(50) + 1;
+        }
+
+        System.out.print("Исходный массив: ");
+        for (int num : array) {
+            System.out.print(num + " ");
+        }
+        System.out.println();
+
+        for (int i = 1; i < array.length; i += 2) {
+            array[i] = 0;
+        }
+
+        System.out.print("Массив после замены: ");
+        for (int num : array) {
+            System.out.print(num + " ");
+        }
+    }
+}
+
+Task 2---------------------------------------------
+
+import java.util.Random;
+
+public class Main {
+    public static void main(String[] args) {
+        int[] array = new int[5];
+        Random rand = new Random();
+
+        for (int i = 0; i < array.length; i++) {
+            array[i] = rand.nextInt(90) + 10; // [0;89] + 10 => [10;99]
+        }
+
+        System.out.print("Массив: ");
+        for (int num : array) {
+            System.out.print(num + " ");
+        }
+        System.out.println();
+
+        boolean isIncreasing = true;
+        for (int i = 1; i < array.length; i++) {
+            if (array[i] <= array[i - 1]) {
+                isIncreasing = false;
+                break;
+            }
+        }
+
+        if (isIncreasing) {
+            System.out.println("Массив является строго возрастающей последовательностью.");
+        } else {
+            System.out.println("Массив не является строго возрастающей последовательностью.");
+        }
+    }
+}
+
+Task 3-------------------------------------------------------------------------
+
+public class Main {
+    public static void main(String[] args) {
+        int N1 = 5;
+        int[] A1 = {1, 2, 3, 5};
+        System.out.println("Пропущенный элемент: " + findMissingElement(N1, A1));
+
+        int N2 = 10;
+        int[] A2 = {6, 1, 2, 8, 3, 4, 7, 10, 5};
+        System.out.println("Пропущенный элемент: " + findMissingElement(N2, A2));
+    }
+
+    public static int findMissingElement(int N, int[] A) {
+        int totalSum = N * (N + 1) / 2;
+
+        int arraySum = 0;
+        for (int num : A) {
+            arraySum += num;
+        }
+
+        return totalSum - arraySum;
+    }
+}
