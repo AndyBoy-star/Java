@@ -1,0 +1,78 @@
+Task 1-------------------------------------------------------------------------
+
+
+public class DeviceCheck {
+    public static boolean isDeviceWorking(int temperature1, int temperature2) {
+        return temperature1 > 100 && temperature2 < 100;
+    }
+
+    public static void main(String[] args) {
+        int temperature1 = 120;
+        int temperature2 = 80;
+
+        boolean result = isDeviceWorking(temperature1, temperature2);
+        System.out.println("Device is working: " + result);
+    }
+}
+
+
+Task 2-----------------------------------------------------------------------
+
+public class BankWithdrawal {
+
+    public static int countDays(int N) {
+        int days = 0;
+
+        while (N > 0) {
+            int max = 1;
+            for (int i = 1; i < N; i++) {
+                if (N % i == 0) {
+                    max = i;
+                }
+            }
+
+            N -= max;
+            days++;
+        }
+
+        return days;
+    }
+
+    public static void main(String[] args) {
+        int N = 21;
+
+        int days = countDays(N);
+        System.out.println("Number of days: " + days);
+    }
+}
+
+
+Task 3-------------------------------------------------------------------
+
+public class Main {
+    public static void main(String[] args) {
+        int H = 200;
+        int N = 50;
+        int M = 1;
+
+        int result = countElevatorMoves(H, N, M);
+        System.out.println("Number of moves: " + result);
+    }
+    public static int countElevatorMoves(int H, int N, int M) {
+        int currentFloor = 0;
+        int moves = 0;
+
+        while (currentFloor < H) {
+            moves++;
+            currentFloor += N;
+
+            if (currentFloor >= H) {
+                break;
+            }
+
+            currentFloor -= M;
+        }
+
+        return moves;
+    }
+}
