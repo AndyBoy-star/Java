@@ -1,0 +1,15 @@
+[ec2-user@ip-172-31-33-20 ~]$ cd /opt/130824_morning/Andrii_Boiko/
+[ec2-user@ip-172-31-33-20 Andrii_Boiko]$ mkdir Andrii
+[ec2-user@ip-172-31-33-20 Andrii_Boiko]$ cd Andrii
+[ec2-user@ip-172-31-33-20 Andrii]$ vim task_Andrii.sh
+[ec2-user@ip-172-31-33-20 Andrii]$ chmod +x task_Andrii.sh
+[ec2-user@ip-172-31-33-20 Andrii]$ crontab -e
+crontab: installing new crontab
+[ec2-user@ip-172-31-33-20 Andrii]$ crontab -e
+crontab: installing new crontab
+[ec2-user@ip-172-31-33-20 Andrii]$ cat task_Andrii.sh
+#!/bin/bash
+for i in {1..10}
+do
+touch "${i}$(date +%d%m%y)"
+done
