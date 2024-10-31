@@ -1,0 +1,90 @@
+Задача №1 ----------------------------------------------------------------------
+
+public class MissingNumber {
+    public static int findMissingNumber(int[] arr, int n) {
+        int totalSum = n * (n + 1) / 2;
+
+        int arrSum = 0;
+        for (int num : arr) {
+            arrSum += num;
+        }
+
+        return totalSum - arrSum;
+    }
+
+    public static void main(String[] args) {
+        int[] arr1 = {1, 2, 3, 5};
+        int n1 = 5;
+        System.out.println("Missing number: " + findMissingNumber(arr1, n1));
+
+        int[] arr2 = {6, 1, 2, 8, 3, 4, 7, 10, 5};
+        int n2 = 10;
+        System.out.println("Missing number: " + findMissingNumber(arr2, n2));
+    }
+}
+
+
+Задача №2 ----------------------------------------------------------------------
+
+import java.util.Map;
+
+public class SQLQueryBuilder {
+
+    public static String buildQuery(Map<String, Object> params) {
+        StringBuilder query = new StringBuilder("SELECT * FROM cars WHERE ");
+
+        boolean firstCondition = true;
+        for (Map.Entry<String, Object> entry : params.entrySet()) {
+            if (entry.getValue() != null) {
+                if (!firstCondition) {
+                    query.append(" AND ");
+                }
+                query.append(entry.getKey()).append(" = ");
+
+                if (entry.getValue() instanceof String || entry.getValue() instanceof Boolean) {
+                    query.append("'").append(entry.getValue()).append("'");
+                } else {
+                    query.append(entry.getValue());
+                }
+
+                firstCondition = false;
+            }
+        }
+
+        return query.toString();
+    }
+
+    public static void main(String[] args) {
+        Map<String, Object> params = Map.of(
+                "model", "V-60",
+                "country", "Germany",
+                "city", "Berlin",
+                "year", null,
+                "active", true
+        );
+
+        String query = buildQuery(params);
+        System.out.println(query);
+    }
+}
+
+
+Задача №3 ----------------------------------------------------------------------
+
+import java.util.Arrays;
+
+public class SortThreeNumbers {
+    public static void main(String[] args) {
+        int a = 7;
+        int b = 0;
+        int c = -5;
+
+        int[] numbers = {a, b, c};
+
+        Arrays.sort(numbers);
+
+        System.out.println("Возрастающая последовательность: " + numbers[0] + " " + numbers[1] + " " + numbers[2]);
+    }
+}
+
+
